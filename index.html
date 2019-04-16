@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html lang="en">
+<head>
+    <title>Reactivity ver. 0.1</title>
+</head>
+<script src="reactivity.js"></script>
+<body>
+Reactivity test
+</body>
+<script>
+    const reactivity = {
+      data: {
+        var1: 10,
+        var2: 30
+      },
+      computed: {
+        total() {
+          this.total = this.var1 + this.var2
+        }
+      }
+    };
+
+    new Reactivity(reactivity);
+
+    reactivity.data.var1 = 50
+    console.log(reactivity.data.total) // 80
+
+    reactivity.data.var2 = 50
+    console.log(reactivity.data.total) // 100
+</script>
+</html>
